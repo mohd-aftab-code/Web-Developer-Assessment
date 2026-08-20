@@ -1,6 +1,12 @@
 import mongoose, { Document } from "mongoose";
 
-
+export interface IUser extends Document {
+  name: string;
+  email: string;
+  password?: string;
+  role: string;
+  createdAt: Date;
+}
 
 export interface ICategory extends Document {
   name: string;

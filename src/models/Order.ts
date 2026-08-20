@@ -7,6 +7,7 @@ export interface IOrderItem {
 }
 
 export interface IOrder extends Document {
+  user?: mongoose.Types.ObjectId; // Optional if guest checkout
   items: IOrderItem[];
   totalAmount: number;
   status: 'pending' | 'processing' | 'shipped' | 'delivered';
@@ -21,6 +22,7 @@ const OrderItemSchema: Schema = new Schema({
 });
 
 const OrderSchema: Schema = new Schema({
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
   items: [OrderItemSchema],
   totalAmount: { type: Number, required: true },
   status: { 

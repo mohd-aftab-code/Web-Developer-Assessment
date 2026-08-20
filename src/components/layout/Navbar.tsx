@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCart } from "@/providers/CartProvider";
-import { ShoppingCart, Search, Menu } from "lucide-react";
+import { ShoppingCart, Search, Menu, User } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -45,6 +45,10 @@ export default function Navbar() {
             )}
           </Link>
 
+          <Link href="/register" className="p-2 text-gray-600 hover:text-black transition-colors hidden sm:block">
+            <User className="w-5 h-5" />
+          </Link>
+
           <button 
             className="md:hidden p-2 text-gray-600"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -65,6 +69,9 @@ export default function Navbar() {
           </Link>
           <Link href="/products?category=fashion" className="block text-sm font-medium text-gray-600" onClick={() => setIsMenuOpen(false)}>
             Fashion
+          </Link>
+          <Link href="/register" className="block text-sm font-medium text-gray-600" onClick={() => setIsMenuOpen(false)}>
+            Register / Login
           </Link>
         </div>
       )}
