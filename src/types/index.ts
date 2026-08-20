@@ -1,11 +1,6 @@
 import mongoose, { Document } from "mongoose";
 
-export interface IUser extends Document {
-  name: string;
-  email: string;
-  role: string;
-  createdAt: Date;
-}
+
 
 export interface ICategory extends Document {
   name: string;
@@ -34,7 +29,6 @@ export interface IOrderItem {
 }
 
 export interface IOrder extends Document {
-  user?: mongoose.Types.ObjectId;
   items: IOrderItem[];
   totalAmount: number;
   status: 'pending' | 'processing' | 'shipped' | 'delivered';
