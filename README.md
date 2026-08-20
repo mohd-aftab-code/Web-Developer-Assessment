@@ -43,6 +43,7 @@ This is a modern e-commerce application built for the Slekco Web Developer Asses
 - **Next.js App Router:** Utilized for both frontend pages (`src/app/page.tsx`) and backend API routes (`src/app/api/...`). This eliminates the need for a separate Node.js/Express server and ensures seamless full-stack deployment on Vercel.
 - **Database (MongoDB):** The schema is structured with normalized references (e.g., Products reference a Category ID) to mimic a real-world scalable database. Mongoose is used for object modeling.
 - **State Management:** The shopping cart is managed via React's Context API (`CartContext.tsx`), ensuring that adding, removing, and updating quantities instantly reflects across the app (Navbar badge, Cart page) without prop drilling. It also syncs with `localStorage` to persist the cart on reload.
+- **Authentication System:** A custom user registration and login flow is implemented using Next.js API Routes, with secure password hashing via `bcryptjs`.
 
 ## AI-Assisted Development
 
