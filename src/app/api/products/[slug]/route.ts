@@ -3,10 +3,11 @@ import { ProductService } from '@/services/product.service';
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const product = await ProductService.getProductBySlug(params.slug);
+    const { slug } = await params;
+    const product = await ProductService.getProductBySlug(slug);
     
     if (!product) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
